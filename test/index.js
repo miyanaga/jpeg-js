@@ -246,3 +246,13 @@ it('should limit memory exposure', function () {
   var jpegData = fixture('grumpycat.jpg');
   expect(() => jpeg.decode(jpegData)).not.toThrow();
 }, 30000);
+
+it('should export JPEGEncoder via encode.JPEGEncoder', function() {
+  var encoder = new jpeg.encode.JPEGEncoder();
+  expect(encoder.constructor.name).toEqual('JPEGEncoder');
+});
+
+it('should export JpegImage via decode.JpegImage', function() {
+  var decoder = new jpeg.decode.JpegImage();
+  expect(typeof decoder.parse).toEqual('function');
+});
